@@ -16,7 +16,8 @@ export default function Formulario () {
                 onChangeCidade(data['localidade'])
             })
         })
-
+    }
+    
     return(
         <View>
             <Text>Digite um CEP (Somente números):</Text>
@@ -25,4 +26,4 @@ export default function Formulario () {
             <Text></Text>
         </View>
     )
-}
+    }
