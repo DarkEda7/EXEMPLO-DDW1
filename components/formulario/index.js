@@ -14,6 +14,7 @@ export default function Formulario () {
             headers: {
                 Accept: 'application/json', 'Content-Type': 'application/json'
         }
+        
     }).then(function(response) {
             response.json().then(function(data){
                 onChangeCidade(data['localidade'])
