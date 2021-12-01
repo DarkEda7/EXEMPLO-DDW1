@@ -3,9 +3,12 @@ import { Text, View, TextInput, Button } from 'react-native';
 
 export default function Formulario () {
     const [cep, onChangeCep] = useState('')
-    const [Cidade, onCangeCidade] = useState('')
-    const handleConsultar =() => {
-        const url = "https://viacep.com.br/ws/" + cep + "/json/"
+    const [cidade, onChangeCidade] = useState('')
+
+    const handleConsultar = () => {
+        const url = 'https://viacep.com.br/ws/' + cep + '/json/'
+        onChangeCidade(url)
+        
         fetch(url, {
             method: 'GET',
             headers: {
@@ -17,13 +20,13 @@ export default function Formulario () {
             })
         })
     }
-    
+
     return(
         <View>
             <Text>Digite um CEP (Somente números):</Text>
-            <TextInput />
-            <Button title="Consulta" />
-            <Text></Text>
+            <TextInput value={cep} onChangeText={onChangeCep} />
+            <Button title="Consulta" onPress={handleConsultar}  />
+            <Text>{cidade}</Text>
         </View>
     )
-    }
+}
